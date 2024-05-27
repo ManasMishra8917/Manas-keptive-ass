@@ -1,0 +1,8 @@
+@media (max-width:480px) {
+    .navbar{
+        position: fixed;
+        top: 5%;
+        left:6%;
+    }
+}
+
