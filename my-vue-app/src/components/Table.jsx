@@ -1,6 +1,7 @@
-import React from 'react';
-import { ChakraProvider, Box, Table, Thead, Tbody, Tr, Th, Td, Heading, Button } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { ChakraProvider, Box, Table, Thead, Tbody, Tr, Th, Td, Heading, Button, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
 import { BsFillCaretDownFill } from 'react-icons/bs';
+
 // JSON data
 const data = {
   "Sheet1": [
@@ -41,33 +42,69 @@ const initialOpeningCash = 1000000;
 // Calculated cash flows
 const cashFlows = calculateCashFlows(data, initialOpeningCash);
 
+// Conversion functions
+const toPercent = (value) => ((value / 1000000000) * 100).toFixed(2);
+const toDollar = (value) => '$' + (value / 75).toFixed(2); // Example conversion rate
+const toEuro = (value) => '€' + (value / 85).toFixed(2); // Example conversion rate
+
 // Main component
 const FinancialTable = () => {
+  const [viewMode, setViewMode] = useState('decimal');
+  const [currency, setCurrency] = useState('rupee');
+
+  const convertValue = (value) => {
+    switch (viewMode) {
+      case 'percent':
+        return toPercent(value);
+      default:
+        switch (currency) {
+          case 'dollar':
+            return toDollar(value);
+          case 'euro':
+            return toEuro(value);
+          default:
+            return value.toLocaleString();
+        }
+    }
+  };
+
   return (
     <ChakraProvider>
-      <Box p={5} style={{marginTop:"40px"}}>
-        <div style={{display:"flex", justifyContent:"space-between"}}>
+      <Box p={5} style={{ marginTop: "40px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <Heading size='xl' fontSize='20px'>Cashflow Summary</Heading>
-          <div style={{display:"flex", alignItems:"center"}}>
-            <Button color={"skyblue"} boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)" size="md">
+          <div style={{ display: "flex", alignItems: "center", gap: "1%" }}>
+            <Button
+              color={viewMode === 'decimal' ? "skyblue" : "black"}
+              boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+              size="md"
+              onClick={() => setViewMode('decimal')}
+            >
               Decimal View
             </Button>
-            <Button bg="white" size="md">
+            <Button
+              color={viewMode === 'percent' ? "skyblue" : "black"}
+              boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+              size="md"
+              onClick={() => setViewMode('percent')}
+            >
               Percent View
             </Button>
-            <Button
-            bg="white"
-            boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
-            size="md"
-            rightIcon={<BsFillCaretDownFill />}
-          >
-            Euro
-          </Button>
+            <Menu>
+              <MenuButton as={Button} bg="white" boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)" size="md" rightIcon={<BsFillCaretDownFill />}>
+                {currency.charAt(0).toUpperCase() + currency.slice(1)}
+              </MenuButton>
+              <MenuList>
+                <MenuItem onClick={() => setCurrency('rupee')}>Rupee</MenuItem>
+                <MenuItem onClick={() => setCurrency('dollar')}>Dollar</MenuItem>
+                <MenuItem onClick={() => setCurrency('euro')}>Euro</MenuItem>
+              </MenuList>
+            </Menu>
           </div>
         </div>
         <Table variant="striped" colorScheme="cyan">
-          <Thead >
-            <Tr >
+          <Thead>
+            <Tr>
               <Th>Cashflow</Th>
               {cashFlows.map((item, index) => (
                 <Th key={index}>{item.Month}</Th>
@@ -78,37 +115,37 @@ const FinancialTable = () => {
             <Tr>
               <Td>Operating Activities</Td>
               {cashFlows.map((item, index) => (
-                <Td key={index}>{item.OperatingActivities.toLocaleString()}</Td>
+                <Td key={index}>{convertValue(item.OperatingActivities)}</Td>
               ))}
             </Tr>
             <Tr>
               <Td>Investing Activities</Td>
               {cashFlows.map((item, index) => (
-                <Td key={index}>{item.InvestingActivities.toLocaleString()}</Td>
+                <Td key={index}>{convertValue(item.InvestingActivities)}</Td>
               ))}
             </Tr>
             <Tr>
               <Td>Financing Activities</Td>
               {cashFlows.map((item, index) => (
-                <Td key={index}>{item.FinancingActivities.toLocaleString()}</Td>
+                <Td key={index}>{convertValue(item.FinancingActivities)}</Td>
               ))}
             </Tr>
             <Tr>
               <Td>Opening Cash</Td>
               {cashFlows.map((item, index) => (
-                <Td key={index}>{item.OpeningCash.toLocaleString()}</Td>
+                <Td key={index}>{convertValue(item.OpeningCash)}</Td>
               ))}
             </Tr>
             <Tr>
               <Td>Net Change in Cash</Td>
               {cashFlows.map((item, index) => (
-                <Td key={index}>{item.NetChangeInCash.toLocaleString()}</Td>
+                <Td key={index}>{convertValue(item.NetChangeInCash)}</Td>
               ))}
             </Tr>
             <Tr>
               <Td>Ending Cash</Td>
               {cashFlows.map((item, index) => (
-                <Td key={index}>{item.EndingCash.toLocaleString()}</Td>
+                <Td key={index}>{convertValue(item.EndingCash)}</Td>
               ))}
             </Tr>
           </Tbody>

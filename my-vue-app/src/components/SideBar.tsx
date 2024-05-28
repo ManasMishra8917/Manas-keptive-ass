@@ -103,13 +103,34 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       <br/>
       <br/>
       <br/>
-      <br/>
-      <Box my="4"  >
+      
+      
+      <Box my="2"  
+      borderWidth="1px"
+       borderRadius="5%"
+      p="1"
+      bg="rgb(246,246,246)"
+      // boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+      color="black"
+      maxW="200px"
+      ml="3"
+      >
         <Avatar initials="MM" name="Manas Mishra" />
       </Box>
-      <Box mt="auto" pt=""> {/* Pushes the logout button to the bottom */}
+      <Box mt="auto" pt=""
+      borderWidth="1px"
+       borderRadius="5%"
+      p="1"
+       bg="rgb(246,246,246)"
+      // boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+      
+      color="black"
+      maxW="200px"
+      ml="3"> 
     
-        <NavItem icon={FiLogOut} style={{marginLeft:"12%"}}>
+        <NavItem icon={FiLogOut} 
+        // style={{marginLeft:"12%"}}
+        >
           Logout
         </NavItem>
       </Box>

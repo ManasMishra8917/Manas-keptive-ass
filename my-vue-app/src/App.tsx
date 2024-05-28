@@ -4,9 +4,13 @@ import Navbar from '../src/components/NavBar';
 import { Flex, Box } from '@chakra-ui/react';
 import Footer from './components/Footer';
 import Table1 from './components/Table';
-import { BarChart } from './components/Bar';
+import BarChart from './components/Bar';
+import { FiSettings } from 'react-icons/fi';
 
 function App() {
+  const [view, setView] = useState("normal");
+  
+
   return (
     <Box
       bgImage='url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR81nwdeMzSAO9Fh6Znj7HHe72ahbuuov84RQ&usqp=CAU")'
@@ -27,10 +31,14 @@ function App() {
         </Box>
         <Flex direction="column" flex="1" bg="white" p={{ base: 4, md: 8 }} mt={{ base: 4, md: '60px' }}>
           <Box mb={{ base: 4, md: 8 }}>
-            <Navbar />
+            <Navbar setView={setView} view={view} />
           </Box>
+          <div style={{ display: 'flex', alignItems: "center", justifyContent: 'flex-end', gap: "1%", paddingRight: "5%" }}>
+            <FiSettings size={20} color="black" />
+            <span>Setting</span>
+          </div>
           <Box flex="1" mb={{ base: 4, md: 8 }}>
-            <BarChart />
+            <BarChart view={view} />
           </Box>
           <Box flex="1" mb={{ base: 4, md: 8 }}>
             <Table1 />
