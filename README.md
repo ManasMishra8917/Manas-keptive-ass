@@ -67,8 +67,11 @@ https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/8da4f3c9-9
 <h2>Technology Stack</h2>
 List and provide a brief overview of the technologies used in the project.
 
-HTML5
-CSS
-Reactjs
-TypeScript
-Chakra UI
+<ul>
+  <li>HTML5</li>
+  <li>CSS</li>
+  <li>Reactjs</li>
+  <li>TypeScript</li>
+  <li>Chakra UI</li>
+  <li>Chart JS</li>   
+</ul>
