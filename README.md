@@ -55,9 +55,13 @@ npm run dev
 <hr>
 <h2>Snapshot of Website</h2>
 ![Screenshot (244)](https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/8da4f3c9-91bf-4472-ba5d-571c66999271)
+<hr>
 ![Screenshot (248)](https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/4bf7a876-5f90-4b86-b29e-4edf68483c90)
+<hr>
 ![Screenshot (245)](https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/01efb06f-78b1-4fb3-9b68-4a5d3654f2b4)
+<hr>
 ![Screenshot (246)](https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/e65811cd-fc22-4bb8-8693-460e2399a2c3)
+<hr>
 ![Screenshot (247)](https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/72240394-ba7f-4678-af79-67e907fcb22a)
 
 <h2>Technology Stack</h2>
