@@ -54,7 +54,7 @@ npm run dev
 
 <hr>
 <h2>Snapshot of Website</h2>
-![Screenshot (244)](https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/8da4f3c9-91bf-4472-ba5d-571c66999271)
+https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/8da4f3c9-91bf-4472-ba5d-571c66999271
 <hr>
 ![Screenshot (248)](https://github.com/ManasMishra8917/Manas-keptive-ass/assets/158509284/4bf7a876-5f90-4b86-b29e-4edf68483c90)
 <hr>
