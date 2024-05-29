@@ -9,8 +9,8 @@ Creating a Professional and User-Friendly PLSE (Profit and Loss Statement Enhanc
 https://manas-keptive-ass.vercel.app/
 <hr>
 <h2>Folder Structure</h2>
-```
 
+```
 ├── README.md
 └── my-vue-app/
 │   ├── .eslintrc.cjs
@@ -36,7 +36,7 @@ https://manas-keptive-ass.vercel.app/
 │   │   ├── index.css
 │   │   └── main.jsx
 │   └── vite.config.js
-```
+
 <hr>
 <h2>Video Walkthrough of the project</h2>
 Project-Presentation Link:https://drive.google.com/file/d/1D_UxYtp5ZkUgFxnh0UpFZQGVuPB2W1f2/view?usp=sharing
