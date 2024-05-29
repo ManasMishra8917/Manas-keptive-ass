@@ -36,6 +36,8 @@ https://manas-keptive-ass.vercel.app/
 │   │   ├── index.css
 │   │   └── main.jsx
 │   └── vite.config.js
+```
+
 
 <hr>
 <h2>Video Walkthrough of the project</h2>
